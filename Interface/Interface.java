@@ -1,14 +1,15 @@
 package Interface;
 import javax.swing.JFrame;
-
-public class Interface {
+//Conceito de Herança aplicado "extends"
+public class Interface extends JFrame{
     //Construtor
     public Interface(){
-        JFrame jFrame = new JFrame("Tela de Login");
-        jFrame.setVisible(true);
-        jFrame.setSize(500, 500);
-        jFrame.setLocationRelativeTo(null); 
-        jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);            
+        setTitle("CyberLogin");
+        setVisible(true);
+        setSize(500, 500);
+        setLocationRelativeTo(null); 
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setResizable(false);            
     }
     
 }

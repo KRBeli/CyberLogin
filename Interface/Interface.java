@@ -9,7 +9,7 @@ public class Interface extends JFrame{
         setLocationRelativeTo(null); 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setResizable(false);   
-         setVisible(true);         
+        setVisible(true);         
     }
     
 }

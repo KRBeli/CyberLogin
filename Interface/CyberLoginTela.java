@@ -101,6 +101,8 @@ public class CyberLoginTela extends javax.swing.JFrame {
 
         pack();
         setLocationRelativeTo(null);
+        setResizable(false);
+        
     }// </editor-fold>                        
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {                                            

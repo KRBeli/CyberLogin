@@ -5,11 +5,11 @@ public class Interface extends JFrame{
     //Construtor
     public Interface(){
         setTitle("CyberLogin");
-        setVisible(true);
         setSize(500, 500);
         setLocationRelativeTo(null); 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setResizable(false);            
+        setResizable(false);   
+         setVisible(true);         
     }
     
 }

@@ -6,7 +6,7 @@ package com.mycompany.cyberlogin;
 
 /**
  *
- * @author Kauã dos Santos Alves Sousa
+ * @author CyberLogin
  */
 public class CyberLoginTela extends javax.swing.JFrame {
 

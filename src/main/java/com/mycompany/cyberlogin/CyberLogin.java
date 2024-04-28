@@ -8,6 +8,8 @@ public class CyberLogin {
             public void run() {
                 
                 new CyberLoginTela().setVisible(true);
+                
+                
             }
         });
     }

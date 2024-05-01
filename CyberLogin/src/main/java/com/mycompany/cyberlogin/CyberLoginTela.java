@@ -129,6 +129,8 @@ public class CyberLoginTela extends javax.swing.JFrame {
                 );
 
                 pack();
+                setLocationRelativeTo(null);
+                
         }// </editor-fold>//GEN-END:initComponents
 
     private void campoUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoUsuarioActionPerformed
@@ -137,7 +139,8 @@ public class CyberLoginTela extends javax.swing.JFrame {
 
     private void botaoCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCadastrarActionPerformed
         // TODO add your handling code here:
-        
+        CyberLoginTelaCadastro telaCadastro = new CyberLoginTelaCadastro();
+        telaCadastro.setVisible(true);
     }//GEN-LAST:event_botaoCadastrarActionPerformed
 
     private void campoSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoSenhaActionPerformed

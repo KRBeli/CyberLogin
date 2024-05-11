@@ -130,7 +130,7 @@ public class CyberLoginTela extends javax.swing.JFrame {
 
                 pack();
                 setLocationRelativeTo(null);
-                
+                setResizable(false);
         }// </editor-fold>//GEN-END:initComponents
 
     private void campoUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoUsuarioActionPerformed

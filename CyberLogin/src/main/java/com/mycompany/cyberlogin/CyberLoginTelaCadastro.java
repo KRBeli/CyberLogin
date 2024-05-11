@@ -139,6 +139,7 @@ public class CyberLoginTelaCadastro extends javax.swing.JFrame {
 
                 pack();
                 setLocationRelativeTo(null);
+                setResizable(false);
         }// </editor-fold>//GEN-END:initComponents
 
         private void jTextFieldIdadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldIdadeActionPerformed
@@ -196,7 +197,7 @@ public class CyberLoginTelaCadastro extends javax.swing.JFrame {
         private javax.swing.JTextField jTextFieldCadastro;
         private javax.swing.JTextField jTextFieldEmail;
         private javax.swing.JTextField jTextFieldIdade;
-        private javax.swing.JTextField jTextFieldNome;
+        public static javax.swing.JTextField jTextFieldNome;
         private javax.swing.JTextField jTextFieldSexo;
         // End of variables declaration//GEN-END:variables
 }

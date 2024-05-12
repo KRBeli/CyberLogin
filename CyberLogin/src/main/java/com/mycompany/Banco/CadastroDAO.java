@@ -10,27 +10,27 @@ import com.mycompany.cyberlogin.CyberLoginTelaCadastro;
 
 public class CadastroDAO {
 //DAO quer dizer Data Access Object
-    public void inserir(CyberLoginTelaCadastro cyberLoginTelaCadastro){
-String sql = "insert into cliente (nome, email, idade, cpf, sexo) values (?, ?, ?, ?, ?);";
+    public void inserir(Cadastro cadastro){
+String sql = "insert into cliente (nome, email, idade, cpf, sexo, senha) values (?, ?, ?, ?, ?, ?);";
         try (Connection conn = Conexao.obterConexao();
              PreparedStatement ps = conn.prepareStatement(sql);) {
-            ps.setObject(1, CyberLoginTelaCadastro.jTextFieldNome);
-            ps.setObject(2, CyberLoginTelaCadastro.jTextFieldEmail);
-            ps.setObject(3, CyberLoginTelaCadastro.jTextFieldIdade);
-            ps.setObject(4, CyberLoginTelaCadastro.jTextFieldCPF);
-            ps.setObject(5, CyberLoginTelaCadastro.jTextFieldSexo);
-
+            ps.setString(1, cadastro.getNome());
+            ps.setString(2, cadastro.getEmail());
+            ps.setInt(3, cadastro.getIdade());
+            ps.setString(4, cadastro.getCpf());
+            ps.setString(5, cadastro.getSexo());
+            ps.setString(6, cadastro.getSenha());
             ps.execute();
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
     
-    public ArrayList<CyberLoginTelaCadastro> listar(){
+    public ArrayList<Cadastro> listar(){
         return null;
     }
     
-    public CyberLoginTelaCadastro buscar(int id) {
+    public Cadastro buscar(int id) {
         String sql = "select * from cliente where ID_CLIENTE = ?;";
         try (Connection conn = Conexao.obterConexao();
              PreparedStatement ps = conn.prepareStatement(sql);) {
@@ -39,10 +39,11 @@ String sql = "insert into cliente (nome, email, idade, cpf, sexo) values (?, ?, 
                 if (rs.next()) {
                     String nome = rs.getString("nome");
                     String email = rs.getString("email");
-                    int idade = rs.getInt("idade");
                     String cpf = rs.getString("cpf");
                     String sexo = rs.getString("sexo");
-                    return new CyberLoginTelaCadastro(nome, email, idade, cpf,sexo);
+                    int idade = rs.getInt("idade");
+                    String senha = rs.getString("senha");
+                    return new Cadastro(nome, email, cpf,sexo,senha,idade);
                 }
             }
         } catch (SQLException e) {
@@ -51,7 +52,7 @@ String sql = "insert into cliente (nome, email, idade, cpf, sexo) values (?, ?, 
         return null;
     }
 
-    public void atualizar(CyberLoginTelaCadastro cyberLoginTelaCadastro){
+    public void atualizar(Cadastro cadastro){
 
     }
     public void excluir(int id){

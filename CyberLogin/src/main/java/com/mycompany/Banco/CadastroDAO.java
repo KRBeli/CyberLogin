@@ -5,8 +5,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
-import com.mycompany.cyberlogin.CyberLoginTelaCadastro;
+import com.mycompany.Interfaces.CyberLoginTelaCadastro;
 
 public class CadastroDAO {
 //DAO quer dizer Data Access Object
@@ -57,5 +59,26 @@ String sql = "insert into cliente (nome, email, idade, cpf, sexo, senha) values 
     }
     public void excluir(int id){
         
+    }
+    public boolean checkLogin (String email, String senha) throws SQLException{
+        Connection con = Conexao.obterConexao();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        boolean check = false;
+
+        try{
+            stmt = con.prepareStatement("SELECT * FROM CLIENTE WHERE email = ? and senha = ?");
+            stmt.setString(1, email);
+            stmt.setString(2, senha);
+
+            rs = stmt.executeQuery();
+
+            if (rs.next()) {
+                check = true;
+            }
+        }catch (SQLException ex){
+            Logger.getLogger(CadastroDAO.class.getName()).log(Level.SEVERE,null,ex);
+        }
+        return check;
     }
 }

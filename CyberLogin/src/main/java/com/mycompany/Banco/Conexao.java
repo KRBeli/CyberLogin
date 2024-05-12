@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class Conexao {
+    
     private static String host = "localhost";
     private static String porta = "3306";
     private static String user = "root";

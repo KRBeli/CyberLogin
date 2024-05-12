@@ -17,7 +17,7 @@ import com.mycompany.Banco.CadastroDAO;
 
 /**
  *
- * @author Kauã dos Santos Alves Sousa
+ * @author CyberLogin
  */
 public class CyberLoginTela extends javax.swing.JFrame implements ActionListener{
 

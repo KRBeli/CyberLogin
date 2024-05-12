@@ -69,17 +69,13 @@ public class CyberLoginTelaCadastro extends javax.swing.JFrame implements Action
 
         jTextFieldEmail.setBackground(new java.awt.Color(204, 204, 204));
         jTextFieldEmail.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
-        jTextFieldEmail.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldEmailActionPerformed(evt);
-            }
-        });
+        jTextFieldEmail.addActionListener(this);
 
         jTextFieldCPF.setBackground(new java.awt.Color(204, 204, 204));
         jTextFieldCPF.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Bruna\\Pictures\\CyberLogin logo.jpg")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Bruna\\Documents\\Cyberlogin\\CyberLogin logoMini.jpg")); // NOI18N
 
         jButtonCadastrar.setBackground(new java.awt.Color(51, 51, 51));
         jButtonCadastrar.setForeground(new java.awt.Color(255, 255, 255));
@@ -192,11 +188,6 @@ public class CyberLoginTelaCadastro extends javax.swing.JFrame implements Action
         setResizable(false);
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jTextFieldEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldEmailActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldEmailActionPerformed
-
 	/**
 	 * @param args the command line arguments
 	 */

@@ -145,7 +145,7 @@ public class CyberLoginTela extends javax.swing.JFrame implements ActionListener
                 .addGap(41, 41, 41))
         );
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Bruna\\Pictures\\CyberLogin logo.jpg")); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Bruna\\Documents\\Cyberlogin\\CyberLogin logoMini.jpg")); // NOI18N
 
         jLabel1.setText("Usuário:");
 

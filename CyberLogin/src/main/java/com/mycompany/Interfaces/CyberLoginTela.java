@@ -2,18 +2,16 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package com.mycompany.Interfaces;
+package com.mycompany.interfaces;
 
 import java.awt.HeadlessException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.font.TextLayout;
 import java.sql.SQLException;
 
 import javax.swing.JOptionPane;
 
-import com.mycompany.Banco.Cadastro;
-import com.mycompany.Banco.CadastroDAO;
+import com.mycompany.banco.CadastroDAO;
 
 /**
  *
@@ -248,15 +246,9 @@ public class CyberLoginTela extends javax.swing.JFrame implements ActionListener
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(CyberLoginTela.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CyberLoginTela.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CyberLoginTela.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CyberLoginTela.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
+        }   
         //</editor-fold>
 
         /* Create and display the form */
@@ -280,14 +272,20 @@ public class CyberLoginTela extends javax.swing.JFrame implements ActionListener
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    String admin = "admin@cyberlogin.com";
+    String senhaAdmin = "admin@1234";
     // End of variables declaration//GEN-END:variables
     @Override
     public void actionPerformed(ActionEvent e) {
                 // TODO add your handling code here:
                 CadastroDAO dao = new CadastroDAO();
                 try {
-                    if(dao.checkLogin(campoUsuario.getText(), campoSenha.getText())){
-                        new InterfaceEvento().setVisible(true);
+                    if (campoUsuario.getText().equals(admin) && campoSenha.getText().equals(senhaAdmin)) {
+                        new InterfaceEventoAdmin().setVisible(true);
+                        this.dispose();
+                    }
+                    else if(dao.checkLogin(campoUsuario.getText(), campoSenha.getText())){
+                        new InterfaceEventoUser().setVisible(true);
                         this.dispose();
                     }else{
                         JOptionPane.showMessageDialog(null, "Senha Incorreta!");

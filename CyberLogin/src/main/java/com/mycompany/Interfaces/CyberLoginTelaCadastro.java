@@ -2,15 +2,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package com.mycompany.Interfaces;
+package com.mycompany.interfaces;
 
-import javax.swing.JTextField;
+import com.mycompany.banco.Cadastro;
+import com.mycompany.banco.CadastroDAO;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
-import com.mycompany.Banco.Cadastro;
-import com.mycompany.Banco.CadastroDAO;
 
 /**
  *
@@ -51,7 +49,7 @@ public class CyberLoginTelaCadastro extends javax.swing.JFrame implements Action
         jTextFieldSenha = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
 
@@ -87,7 +85,12 @@ public class CyberLoginTelaCadastro extends javax.swing.JFrame implements Action
         jButtonCancelar.setForeground(new java.awt.Color(255, 255, 255));
         jButtonCancelar.setText("Cancelar");
         jButtonCancelar.setBorder(null);
-        jButtonCancelar.addActionListener(this);
+        jButtonCancelar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e){
+                dispose();
+            }
+        });
 
         jLabel2.setText("Nome:");
 
@@ -206,15 +209,9 @@ public class CyberLoginTelaCadastro extends javax.swing.JFrame implements Action
 					break;
 				}
 			}
-		} catch (ClassNotFoundException ex) {
+		} catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
 			java.util.logging.Logger.getLogger(CyberLoginTelaCadastro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-		} catch (InstantiationException ex) {
-			java.util.logging.Logger.getLogger(CyberLoginTelaCadastro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-		} catch (IllegalAccessException ex) {
-			java.util.logging.Logger.getLogger(CyberLoginTelaCadastro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-		} catch (javax.swing.UnsupportedLookAndFeelException ex) {
-			java.util.logging.Logger.getLogger(CyberLoginTelaCadastro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-		}
+		}   
 		//</editor-fold>
 
 		/* Create and display the form */

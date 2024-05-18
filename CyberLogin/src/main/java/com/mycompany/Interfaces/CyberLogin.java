@@ -1,4 +1,4 @@
-package com.mycompany.Interfaces;
+package com.mycompany.interfaces;
 
 public class CyberLogin {
 

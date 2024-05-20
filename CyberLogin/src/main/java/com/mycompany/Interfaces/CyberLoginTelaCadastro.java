@@ -2,10 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package com.mycompany.interfaces;
+package com.mycompany.Interfaces;
 
-import com.mycompany.banco.Cadastro;
-import com.mycompany.banco.CadastroDAO;
+import com.mycompany.Banco.Cadastro;
+import com.mycompany.Banco.CadastroDAO;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -73,7 +73,7 @@ public class CyberLoginTelaCadastro extends javax.swing.JFrame implements Action
         jTextFieldCPF.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Bruna\\Documents\\Cyberlogin\\CyberLogin logoMini.jpg")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("CyberLogin logoMini.jpg"))); // NOI18N
 
         jButtonCadastrar.setBackground(new java.awt.Color(51, 51, 51));
         jButtonCadastrar.setForeground(new java.awt.Color(255, 255, 255));

@@ -1,4 +1,4 @@
-package com.mycompany.banco;
+package com.mycompany.Banco;
 
 public class Cadastro {
     private String nome,email,sexo,cpf,senha;

@@ -1,10 +1,10 @@
-package com.mycompany.interfaces;
+package com.mycompany.Interfaces;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import com.mycompany.banco.CadastroDAO;
-import com.mycompany.banco.CadastroEvento;
+import com.mycompany.Banco.CadastroDAO;
+import com.mycompany.Banco.CadastroEvento;
 
 public class InterfaceEventoAdmin extends javax.swing.JFrame implements ActionListener {
 
@@ -56,7 +56,7 @@ public class InterfaceEventoAdmin extends javax.swing.JFrame implements ActionLi
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
         jPanel1.setPreferredSize(new java.awt.Dimension(1366, 768));
 
-        jLabelLogo.setIcon(new javax.swing.ImageIcon("C:\\Users\\Bruna\\Documents\\NetBeansProjects\\InterfaceEvento\\CyberLogin logo.jpg")); // NOI18N
+        jLabelLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("CyberLogin logo.jpg"))); // NOI18N
 
         jPanel2.setBackground(new java.awt.Color(153, 153, 153));
 

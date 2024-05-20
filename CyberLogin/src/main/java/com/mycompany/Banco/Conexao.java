@@ -1,4 +1,4 @@
-package com.mycompany.banco;
+package com.mycompany.Banco;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

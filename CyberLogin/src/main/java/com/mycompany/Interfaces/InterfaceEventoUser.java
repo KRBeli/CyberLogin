@@ -1,4 +1,4 @@
-package com.mycompany.interfaces;
+package com.mycompany.Interfaces;
 
 public class InterfaceEventoUser extends javax.swing.JFrame {
 
@@ -31,7 +31,7 @@ public class InterfaceEventoUser extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
         jPanel1.setPreferredSize(new java.awt.Dimension(1366, 768));
 
-        jLabelLogo.setIcon(new javax.swing.ImageIcon("C:\\Users\\Bruna\\Documents\\NetBeansProjects\\InterfaceEvento\\CyberLogin logo.jpg")); // NOI18N
+        jLabelLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("CyberLogin logo.jpg"))); // NOI18N
 
         jPanel2.setBackground(new java.awt.Color(153, 153, 153));
 

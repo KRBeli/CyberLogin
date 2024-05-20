@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package com.mycompany.interfaces;
+package com.mycompany.Interfaces;
 
 import java.awt.HeadlessException;
 import java.awt.event.ActionEvent;
@@ -11,7 +11,7 @@ import java.sql.SQLException;
 
 import javax.swing.JOptionPane;
 
-import com.mycompany.banco.CadastroDAO;
+import com.mycompany.Banco.CadastroDAO;
 
 /**
  *
@@ -143,7 +143,7 @@ public class CyberLoginTela extends javax.swing.JFrame implements ActionListener
                 .addGap(41, 41, 41))
         );
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Bruna\\Documents\\Cyberlogin\\CyberLogin logoMini.jpg")); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("CyberLogin logoMini.jpg"))); // NOI18N
 
         jLabel1.setText("Usuário:");
 

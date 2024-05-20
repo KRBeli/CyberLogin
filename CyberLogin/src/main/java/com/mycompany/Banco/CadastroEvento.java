@@ -1,4 +1,4 @@
-package com.mycompany.banco;
+package com.mycompany.Banco;
 
 public class CadastroEvento {
     private String nomeEvento, descricao, dataInicio, dataFim, horaInicio, horaFim;

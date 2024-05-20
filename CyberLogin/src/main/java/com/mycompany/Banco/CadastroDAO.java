@@ -4,13 +4,26 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import com.mycompany.Interfaces.CyberLoginTelaCadastro;
-
 public class CadastroDAO {
+
+    public void inserirEvento(CadastroEvento cadastroEvento){
+        String sql = "insert into eventos (nome, descricao, datainicio, datafim, horainicio, horafim) values (?, ?, ?, ?, ?, ?);";
+                try (Connection conn = Conexao.obterConexao();
+                     PreparedStatement ps = conn.prepareStatement(sql);) {
+                    ps.setString(1, cadastroEvento.getNomeEvento());
+                    ps.setString(2, cadastroEvento.getDescricao());
+                    ps.setString(3, cadastroEvento.getDataInicio());
+                    ps.setString(4, cadastroEvento.getDataFim());
+                    ps.setString(5, cadastroEvento.getHoraInicio());
+                    ps.setString(6, cadastroEvento.getHoraFim());
+                    ps.execute();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
 //DAO quer dizer Data Access Object
     public void inserir(Cadastro cadastro){
 String sql = "insert into cliente (nome, email, idade, cpf, sexo, senha) values (?, ?, ?, ?, ?, ?);";
@@ -26,10 +39,6 @@ String sql = "insert into cliente (nome, email, idade, cpf, sexo, senha) values 
         } catch (SQLException e) {
             e.printStackTrace();
         }
-    }
-    
-    public ArrayList<Cadastro> listar(){
-        return null;
     }
     
     public Cadastro buscar(int id) {
@@ -52,13 +61,6 @@ String sql = "insert into cliente (nome, email, idade, cpf, sexo, senha) values 
             e.printStackTrace();
         }
         return null;
-    }
-
-    public void atualizar(Cadastro cadastro){
-
-    }
-    public void excluir(int id){
-        
     }
     public boolean checkLogin (String email, String senha) throws SQLException{
         Connection con = Conexao.obterConexao();

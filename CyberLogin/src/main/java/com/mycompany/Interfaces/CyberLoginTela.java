@@ -7,17 +7,15 @@ package com.mycompany.Interfaces;
 import java.awt.HeadlessException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.font.TextLayout;
 import java.sql.SQLException;
 
 import javax.swing.JOptionPane;
 
-import com.mycompany.Banco.Cadastro;
 import com.mycompany.Banco.CadastroDAO;
 
 /**
  *
- * @author CyberLogin
+ * @author Kauã dos Santos Alves Sousa
  */
 public class CyberLoginTela extends javax.swing.JFrame implements ActionListener{
 
@@ -145,7 +143,7 @@ public class CyberLoginTela extends javax.swing.JFrame implements ActionListener
                 .addGap(41, 41, 41))
         );
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Bruna\\Pictures\\CyberLogin logo.jpg")); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("CyberLogin logoMini.jpg"))); // NOI18N
 
         jLabel1.setText("Usuário:");
 
@@ -248,15 +246,9 @@ public class CyberLoginTela extends javax.swing.JFrame implements ActionListener
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(CyberLoginTela.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CyberLoginTela.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CyberLoginTela.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CyberLoginTela.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
+        }   
         //</editor-fold>
 
         /* Create and display the form */
@@ -280,14 +272,20 @@ public class CyberLoginTela extends javax.swing.JFrame implements ActionListener
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    String admin = "admin@cyberlogin.com";
+    String senhaAdmin = "admin@1234";
     // End of variables declaration//GEN-END:variables
     @Override
     public void actionPerformed(ActionEvent e) {
                 // TODO add your handling code here:
                 CadastroDAO dao = new CadastroDAO();
                 try {
-                    if(dao.checkLogin(campoUsuario.getText(), campoSenha.getText())){
-                        new InterfaceEvento().setVisible(true);
+                    if (campoUsuario.getText().equals(admin) && campoSenha.getText().equals(senhaAdmin)) {
+                        new InterfaceEventoAdmin().setVisible(true);
+                        this.dispose();
+                    }
+                    else if(dao.checkLogin(campoUsuario.getText(), campoSenha.getText())){
+                        new InterfaceEventoUser().setVisible(true);
                         this.dispose();
                     }else{
                         JOptionPane.showMessageDialog(null, "Senha Incorreta!");

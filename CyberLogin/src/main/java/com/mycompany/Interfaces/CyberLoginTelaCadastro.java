@@ -4,13 +4,11 @@
  */
 package com.mycompany.Interfaces;
 
-import javax.swing.JTextField;
+import com.mycompany.Banco.Cadastro;
+import com.mycompany.Banco.CadastroDAO;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
-import com.mycompany.Banco.Cadastro;
-import com.mycompany.Banco.CadastroDAO;
 
 /**
  *
@@ -51,7 +49,7 @@ public class CyberLoginTelaCadastro extends javax.swing.JFrame implements Action
         jTextFieldSenha = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
 
@@ -69,17 +67,13 @@ public class CyberLoginTelaCadastro extends javax.swing.JFrame implements Action
 
         jTextFieldEmail.setBackground(new java.awt.Color(204, 204, 204));
         jTextFieldEmail.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
-        jTextFieldEmail.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldEmailActionPerformed(evt);
-            }
-        });
+        jTextFieldEmail.addActionListener(this);
 
         jTextFieldCPF.setBackground(new java.awt.Color(204, 204, 204));
         jTextFieldCPF.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Bruna\\Pictures\\CyberLogin logo.jpg")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("CyberLogin logoMini.jpg"))); // NOI18N
 
         jButtonCadastrar.setBackground(new java.awt.Color(51, 51, 51));
         jButtonCadastrar.setForeground(new java.awt.Color(255, 255, 255));
@@ -91,7 +85,12 @@ public class CyberLoginTelaCadastro extends javax.swing.JFrame implements Action
         jButtonCancelar.setForeground(new java.awt.Color(255, 255, 255));
         jButtonCancelar.setText("Cancelar");
         jButtonCancelar.setBorder(null);
-        jButtonCancelar.addActionListener(this);
+        jButtonCancelar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e){
+                dispose();
+            }
+        });
 
         jLabel2.setText("Nome:");
 
@@ -192,11 +191,6 @@ public class CyberLoginTelaCadastro extends javax.swing.JFrame implements Action
         setResizable(false);
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jTextFieldEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldEmailActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldEmailActionPerformed
-
 	/**
 	 * @param args the command line arguments
 	 */
@@ -215,15 +209,9 @@ public class CyberLoginTelaCadastro extends javax.swing.JFrame implements Action
 					break;
 				}
 			}
-		} catch (ClassNotFoundException ex) {
+		} catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
 			java.util.logging.Logger.getLogger(CyberLoginTelaCadastro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-		} catch (InstantiationException ex) {
-			java.util.logging.Logger.getLogger(CyberLoginTelaCadastro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-		} catch (IllegalAccessException ex) {
-			java.util.logging.Logger.getLogger(CyberLoginTelaCadastro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-		} catch (javax.swing.UnsupportedLookAndFeelException ex) {
-			java.util.logging.Logger.getLogger(CyberLoginTelaCadastro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-		}
+		}   
 		//</editor-fold>
 
 		/* Create and display the form */

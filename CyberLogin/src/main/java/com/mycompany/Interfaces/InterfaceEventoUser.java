@@ -1,5 +1,15 @@
 package com.mycompany.Interfaces;
 
+import java.util.List;
+
+import javax.swing.table.DefaultTableModel;
+
+import com.mycompany.Banco.CadastroDAO;
+import com.mycompany.Banco.CadastroEvento;
+
+/**
+ * Classe que representa a interface gráfica de usuário para visualização de eventos.
+ */
 public class InterfaceEventoUser extends javax.swing.JFrame {
 
     /**
@@ -36,16 +46,19 @@ public class InterfaceEventoUser extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(153, 153, 153));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+            new Object [][] {   
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Nome Evento", "Descrição Evento", "Data Inicio", "Hora Inicio", "Data Fim", "Hora Fim"
             }
         ));
+        jTable1.getColumnModel().getColumn(0).setPreferredWidth(200);
+        jTable1.getColumnModel().getColumn(1).setPreferredWidth(200);
+        jTable1.getColumnModel().getColumn(2).setPreferredWidth(200);
+        jTable1.getColumnModel().getColumn(3).setPreferredWidth(200);
+        jTable1.getColumnModel().getColumn(4).setPreferredWidth(200);
+        jTable1.getColumnModel().getColumn(5).setPreferredWidth(200);
+        buscarEventos();
         jScrollPane1.setViewportView(jTable1);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -134,7 +147,24 @@ public class InterfaceEventoUser extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    public void buscarEventos(){
+        DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();
+        CadastroDAO dao = new CadastroDAO();
+        List<CadastroEvento> eventos = dao.buscarEventos();
+        if (modelo.getRowCount() > 0) {
+            modelo.setRowCount(0);
+        }
+        for (CadastroEvento evento : eventos) {
+            Object [] objeto = new Object[6];
+            objeto [0] = evento.getNomeEvento();    
+            objeto [1] = evento.getDescricao();
+            objeto [2] = evento.getDataInicio();
+            objeto [3] = evento.getHoraInicio();
+            objeto [4] = evento.getDataFim();
+            objeto [5] = evento.getHoraFim();
+            modelo.addRow(objeto);
+        }
+    }
     /**
      * @param args the command line arguments
      */

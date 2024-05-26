@@ -1,5 +1,9 @@
 package com.mycompany.Interfaces;
 
+/**
+ * Classe responsável por iniciar a aplicação CyberLogin.
+ */
+
 public class CyberLogin {
 //teste
     public static void main(String[] args) {

@@ -17,6 +17,10 @@ import com.mycompany.Banco.CadastroDAO;
  *
  * @author Kauã dos Santos Alves Sousa
  */
+/**
+ * Classe responsável por representar a tela de login do sistema CyberLogin.
+ * Esta classe estende a classe javax.swing.JFrame e implementa a interface ActionListener.
+ */
 public class CyberLoginTela extends javax.swing.JFrame implements ActionListener{
 
     /**

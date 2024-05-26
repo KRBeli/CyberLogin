@@ -1,5 +1,21 @@
 package com.mycompany.Banco;
 
+/**
+ * A classe Cadastro representa um objeto de cadastro de usuário.
+ * 
+ * Cada objeto Cadastro possui os seguintes atributos:
+ * - nome: o nome do usuário
+ * - email: o email do usuário
+ * - sexo: o sexo do usuário
+ * - cpf: o CPF do usuário
+ * - senha: a senha do usuário
+ * - idade: a idade do usuário
+ * 
+ * A classe Cadastro possui os seguintes métodos:
+ * - Construtores: um construtor padrão e um construtor que recebe todos os atributos como parâmetros
+ * - Getters e Setters: métodos para acessar e modificar os atributos do objeto
+ */
+
 public class Cadastro {
     private String nome,email,sexo,cpf,senha;
     private int idade;

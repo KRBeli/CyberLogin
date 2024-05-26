@@ -6,6 +6,10 @@ import java.awt.event.ActionListener;
 import com.mycompany.Banco.CadastroDAO;
 import com.mycompany.Banco.CadastroEvento;
 
+/**
+ * Classe que representa a interface gráfica de administração de eventos.
+ * Esta classe estende a classe javax.swing.JFrame e implementa a interface ActionListener.
+ */
 public class InterfaceEventoAdmin extends javax.swing.JFrame implements ActionListener {
 
     /**

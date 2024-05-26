@@ -14,6 +14,9 @@ import java.awt.event.ActionListener;
  *
  * @author lucas
  */
+/**
+ * Classe responsável por criar a tela de cadastro do CyberLogin.
+ */
 public class CyberLoginTelaCadastro extends javax.swing.JFrame implements ActionListener{
 
 	/**

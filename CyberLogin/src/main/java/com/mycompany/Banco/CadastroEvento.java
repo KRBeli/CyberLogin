@@ -1,5 +1,13 @@
 package com.mycompany.Banco;
 
+/**
+ * A classe CadastroEvento representa um evento a ser cadastrado.
+ * 
+ * Cada evento possui um nome, uma descrição, uma data de início, uma data de fim, uma hora de início e uma hora de fim.
+ * 
+ * Os atributos podem ser acessados e modificados por meio de métodos getters e setters.
+ */
+
 public class CadastroEvento {
     private String nomeEvento, descricao, dataInicio, dataFim, horaInicio, horaFim;
 

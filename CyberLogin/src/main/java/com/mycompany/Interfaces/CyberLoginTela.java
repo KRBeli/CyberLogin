@@ -5,10 +5,12 @@
 package com.mycompany.Interfaces;
 
 import java.awt.HeadlessException;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
 
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 import com.mycompany.Banco.CadastroDAO;
@@ -60,7 +62,11 @@ public class CyberLoginTela extends javax.swing.JFrame implements ActionListener
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
         jPanel1.setBorder(javax.swing.BorderFactory.createCompoundBorder());
-
+        jPanel1.setForeground(new java.awt.Color(204, 204, 204));
+        ImageIcon imgIcon = new ImageIcon(getClass().getResource("CyberLoginMini.png"));
+        Image img = imgIcon.getImage();
+        Image resizedImage = img.getScaledInstance(32, 32, java.awt.Image.SCALE_SMOOTH);
+        this.setIconImage(resizedImage);
         campoUsuario.setBackground(new java.awt.Color(204, 204, 204));
         campoUsuario.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
         campoUsuario.addActionListener(this);
@@ -148,7 +154,7 @@ public class CyberLoginTela extends javax.swing.JFrame implements ActionListener
         );
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("CyberLogin logoMini.jpg"))); // NOI18N
-
+        
         jLabel1.setText("Usuário:");
 
         jLabel3.setText("Senha:");

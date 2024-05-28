@@ -1,7 +1,10 @@
 package com.mycompany.Interfaces;
 
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
+import javax.swing.ImageIcon;
 
 import com.mycompany.Banco.CadastroDAO;
 import com.mycompany.Banco.CadastroEvento;
@@ -59,6 +62,10 @@ public class InterfaceEventoAdmin extends javax.swing.JFrame implements ActionLi
         
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
         jPanel1.setPreferredSize(new java.awt.Dimension(1366, 768));
+        ImageIcon imgIcon = new ImageIcon(getClass().getResource("CyberLoginMini.png"));
+        Image img = imgIcon.getImage();
+        Image resizedImage = img.getScaledInstance(32, 32, java.awt.Image.SCALE_SMOOTH);
+        this.setIconImage(resizedImage);
 
         jLabelLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("CyberLogin logo.jpg"))); // NOI18N
 

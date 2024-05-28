@@ -4,6 +4,10 @@
  */
 package com.mycompany.Interfaces;
 
+import java.awt.Image;
+
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author Bruna
@@ -35,7 +39,10 @@ public class InterfaceEvento extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
         jPanel1.setPreferredSize(new java.awt.Dimension(1366, 768));
-
+        ImageIcon imgIcon = new ImageIcon(getClass().getResource("CyberLoginMini.png"));
+        Image img = imgIcon.getImage();
+        Image resizedImage = img.getScaledInstance(32, 32, java.awt.Image.SCALE_SMOOTH);
+        this.setIconImage(resizedImage);
         jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Bruna\\Documents\\CyberLogin logo.jpg")); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);

@@ -44,42 +44,42 @@ public class CadastroDAO {
          */
 
         public List<CadastroEvento> buscarEventos() {
-        List<CadastroEvento> eventos = new ArrayList<>();
-        String sql = "SELECT * FROM eventos WHERE datafim > ? OR (datafim = ? AND horafim > ?)";
-        
-        try (Connection conn = Conexao.obterConexao();
-             PreparedStatement ps = conn.prepareStatement(sql)) {
-             
-            LocalDate currentDate = LocalDate.now();
-            LocalTime currentTime = LocalTime.now();
-            DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-            DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm:ss");
-            
-            String formattedDate = currentDate.format(dateFormatter);
-            String formattedTime = currentTime.format(timeFormatter);
-            
-            ps.setString(1, formattedDate);
-            ps.setString(2, formattedDate);
-            ps.setString(3, formattedTime);
-            ResultSet rs = ps.executeQuery();
-            
-            while (rs.next()) {
-                CadastroEvento evento = new CadastroEvento();
-                evento.setNomeEvento(rs.getString("nome"));
-                evento.setDescricao(rs.getString("descricao"));
-                evento.setDataInicio(rs.getString("datainicio"));
-                evento.setDataFim(rs.getString("datafim"));
-                evento.setHoraInicio(rs.getString("horainicio"));
-                evento.setHoraFim(rs.getString("horafim"));
-                eventos.add(evento);
+            List<CadastroEvento> eventos = new ArrayList<>();
+            String sql = "SELECT nome, descricao, datainicio, datafim, horainicio, horafim FROM eventos WHERE datafim >= ? OR (datafim = ? AND horafim > ?)";
+
+            try (Connection conn = Conexao.obterConexao();
+                 PreparedStatement ps = conn.prepareStatement(sql)) {
+
+                LocalDate currentDate = LocalDate.now();
+                LocalTime currentTime = LocalTime.now();
+                DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+                DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm");
+
+                String formattedDate = currentDate.format(dateFormatter);
+                String formattedTime = currentTime.format(timeFormatter);
+
+                ps.setString(1, formattedDate);
+                ps.setString(2, formattedDate);
+                ps.setString(3, formattedTime);
+                ResultSet rs = ps.executeQuery();
+
+                while (rs.next()) {
+                    CadastroEvento evento = new CadastroEvento();
+                    evento.setNomeEvento(rs.getString("nome"));
+                    evento.setDescricao(rs.getString("descricao"));
+                    evento.setDataInicio(rs.getString("datainicio"));
+                    evento.setDataFim(rs.getString("datafim"));
+                    evento.setHoraInicio(rs.getString("horainicio"));
+                    evento.setHoraFim(rs.getString("horafim"));
+                    eventos.add(evento);
+                }
+
+            } catch (SQLException e) {
+                e.printStackTrace();
             }
-            
-        } catch (SQLException e) {
-            e.printStackTrace();
+
+            return eventos;
         }
-        
-        return eventos;
-    }
         
         /**
          * Insere um novo cadastro no banco de dados.

@@ -7,8 +7,11 @@ package com.mycompany.Interfaces;
 import com.mycompany.Banco.Cadastro;
 import com.mycompany.Banco.CadastroDAO;
 
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -55,7 +58,11 @@ public class CyberLoginTelaCadastro extends javax.swing.JFrame implements Action
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
-
+        jPanel1.setForeground(new java.awt.Color(204, 204, 204));
+        ImageIcon imgIcon = new ImageIcon(getClass().getResource("CyberLoginMini.png"));
+        Image img = imgIcon.getImage();
+        Image resizedImage = img.getScaledInstance(32, 32, java.awt.Image.SCALE_SMOOTH);
+        this.setIconImage(resizedImage);
         jTextFieldNome.setBackground(new java.awt.Color(204, 204, 204));
         jTextFieldNome.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
         jTextFieldNome.addActionListener(this);

@@ -1,8 +1,15 @@
 package com.mycompany.Interfaces;
 
+import java.awt.Image;
+import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.ImageIcon;
+import javax.swing.RowSorter;
+import javax.swing.SortOrder;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
 
 import com.mycompany.Banco.CadastroDAO;
 import com.mycompany.Banco.CadastroEvento;
@@ -40,6 +47,10 @@ public class InterfaceEventoUser extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
         jPanel1.setPreferredSize(new java.awt.Dimension(1366, 768));
+        ImageIcon imgIcon = new ImageIcon(getClass().getResource("CyberLoginMini.png"));
+        Image img = imgIcon.getImage();
+        Image resizedImage = img.getScaledInstance(32, 32, java.awt.Image.SCALE_SMOOTH);
+        this.setIconImage(resizedImage);
 
         jLabelLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("CyberLogin logo.jpg"))); // NOI18N
 
@@ -49,7 +60,7 @@ public class InterfaceEventoUser extends javax.swing.JFrame {
             new Object [][] {   
             },
             new String [] {
-                "Nome Evento", "Descrição Evento", "Data Inicio", "Hora Inicio", "Data Fim", "Hora Fim"
+            "Nome Evento", "Descrição Evento", "Data Inicio", "Hora Inicio", "Data Fim", "Hora Fim"
             }
         ));
         jTable1.getColumnModel().getColumn(0).setPreferredWidth(200);
@@ -60,6 +71,13 @@ public class InterfaceEventoUser extends javax.swing.JFrame {
         jTable1.getColumnModel().getColumn(5).setPreferredWidth(200);
         buscarEventos();
         jScrollPane1.setViewportView(jTable1);
+        
+        TableRowSorter<TableModel> sorter = new TableRowSorter<>(jTable1.getModel());
+        jTable1.setRowSorter(sorter);
+        List<RowSorter.SortKey> sortKeys = new ArrayList<>();
+        int columnIndexToSort = 4; // Column index to sort (5th column)
+        sortKeys.add(new RowSorter.SortKey(columnIndexToSort, SortOrder.ASCENDING));
+        sorter.setSortKeys(sortKeys);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);

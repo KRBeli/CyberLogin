@@ -16,12 +16,12 @@ USE `cad_clientes` ;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `cad_clientes`.`CLIENTE` (
     `ID_CLIENTE` INT NOT NULL AUTO_INCREMENT,
-    `NOME` VARCHAR(200) NOT NULL,
-    `EMAIL` VARCHAR(200) NOT NULL,
-    `IDADE` INT NOT NULL,
-    `CPF` VARCHAR(200) NOT NULL,
-    `SEXO` VARCHAR(200) NOT NULL,
-    `SENHA` VARCHAR(200) NOT NULL,
+    `nome` VARCHAR(200) NOT NULL,
+    `email` VARCHAR(200) NOT NULL,
+    `idade` INT NOT NULL,
+    `cpf` VARCHAR(200) NOT NULL,
+    `sexo` VARCHAR(200) NOT NULL,
+    `senha` VARCHAR(200) NOT NULL,
     PRIMARY KEY (`ID_CLIENTE`)
 ) ENGINE = InnoDB;
 
@@ -30,12 +30,12 @@ CREATE TABLE IF NOT EXISTS `cad_clientes`.`CLIENTE` (
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `cad_clientes`.`EVENTOS` (
     `ID_EVENTOS` INT NOT NULL AUTO_INCREMENT,
-    `NOME` VARCHAR(200) NOT NULL,
-    `DESCRICAO` VARCHAR(200) NOT NULL,
-    `DATAINICIO` VARCHAR(200) NOT NULL,
-    `DATAFIM` VARCHAR(200) NOT NULL,
-    `HORAINICIO` VARCHAR(200) NOT NULL,
-    `HORAFIM` VARCHAR(200) NOT NULL,
+    `nome` VARCHAR(200) NOT NULL,
+    `descricao` VARCHAR(200) NOT NULL,
+    `datainicio` VARCHAR(200) NOT NULL,
+    `datafim` VARCHAR(200) NOT NULL,
+    `horainicio` VARCHAR(200) NOT NULL,
+    `horafim` VARCHAR(200) NOT NULL,
     PRIMARY KEY (`ID_EVENTOS`)
 ) ENGINE = InnoDB;
 

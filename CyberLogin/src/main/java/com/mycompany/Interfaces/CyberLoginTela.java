@@ -5,9 +5,11 @@ import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
+
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+
 import com.mycompany.Banco.CadastroDAO;
 import com.mycompany.Bordas.RoundJPanel;
 import com.mycompany.Bordas.RoundedTextField;
@@ -17,6 +19,7 @@ public class CyberLoginTela extends JFrame implements ActionListener {
     private static final long serialVersionUID = 1L;
     private javax.swing.JButton botaoCadastrar;
     private javax.swing.JButton botaoLogin;
+    private javax.swing.JButton botaoFechar;
     public static javax.swing.JPasswordField campoSenha;
     public static javax.swing.JTextField campoUsuario;
     private javax.swing.JLabel jLabel1;
@@ -33,7 +36,6 @@ public class CyberLoginTela extends JFrame implements ActionListener {
     private String senhaAdmin = "admin@1234";
 
     public CyberLoginTela() {
-        setUndecorated(true);
         initComponents();
     }
 
@@ -43,6 +45,7 @@ public class CyberLoginTela extends JFrame implements ActionListener {
         campoSenha = new javax.swing.JPasswordField();
         botaoCadastrar = new javax.swing.JButton();
         botaoLogin = new javax.swing.JButton();
+        botaoFechar = new javax.swing.JButton();
         RoundJPanel jPanel2 = new RoundJPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -87,6 +90,14 @@ public class CyberLoginTela extends JFrame implements ActionListener {
         botaoLogin.setText("Logar");
         botaoLogin.addActionListener(this);
 
+        botaoFechar.setBackground(new java.awt.Color(51, 51, 51));
+        botaoFechar.setForeground(new java.awt.Color(255, 255, 255));
+        botaoFechar.setText("X");
+        botaoFechar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                System.exit(0);
+            }
+        });
         jPanel2.setBackground(new java.awt.Color(51, 51, 51));
 
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
@@ -127,7 +138,7 @@ public class CyberLoginTela extends JFrame implements ActionListener {
                             .addComponent(jLabel8)
                             .addComponent(jLabel9)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(123, 123, 123)
+                        .addGap(0,123, 123)
                         .addComponent(jLabel10)))
                 .addContainerGap(15, Short.MAX_VALUE))
         );
@@ -221,7 +232,7 @@ public class CyberLoginTela extends JFrame implements ActionListener {
         pack();
         setLocationRelativeTo(null);
         setResizable(false);
-        
+        setTitle("CyberLogin");
     }
 
     public static void main(String args[]) {

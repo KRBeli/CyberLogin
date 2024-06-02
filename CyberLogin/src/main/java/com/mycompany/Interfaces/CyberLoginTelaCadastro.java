@@ -3,6 +3,7 @@ package com.mycompany.Interfaces;
 
 import com.mycompany.Banco.Cadastro;
 import com.mycompany.Banco.CadastroDAO;
+import com.mycompany.Bordas.RoundJPanel;
 import com.mycompany.Bordas.RoundedTextField;
 
 import java.awt.Image;
@@ -19,7 +20,7 @@ public class CyberLoginTelaCadastro extends javax.swing.JFrame implements Action
 
     @SuppressWarnings("unchecked")
     private void initComponents() {
-        jPanel1 = new javax.swing.JPanel();
+        RoundJPanel jPanel1 = new RoundJPanel();
         jTextFieldNome = new javax.swing.JTextField();
         jTextFieldIdade = new javax.swing.JTextField();
         jTextFieldSexo = new javax.swing.JTextField();
@@ -33,13 +34,12 @@ public class CyberLoginTelaCadastro extends javax.swing.JFrame implements Action
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jTextFieldSenha = new javax.swing.JTextField();
+        jTextFieldSenha = new javax.swing.JPasswordField();
         jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel1.setForeground(new java.awt.Color(204, 204, 204));
         
         ImageIcon imgIcon = new ImageIcon(getClass().getResource("CyberLoginMini.png"));
         Image img = imgIcon.getImage();
@@ -180,6 +180,7 @@ public class CyberLoginTelaCadastro extends javax.swing.JFrame implements Action
                         .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
+        setUndecorated(true);
         pack();
         setResizable(false);
         setLocationRelativeTo(null);
@@ -213,14 +214,22 @@ public class CyberLoginTelaCadastro extends javax.swing.JFrame implements Action
         cadastro.setIdade(Integer.parseInt(jTextFieldIdade.getText()));
         cadastro.setSenha(jTextFieldSenha.getText());
         CadastroDAO cadastroDAO = new CadastroDAO();
+
         try {
+
         cadastroDAO.inserir(cadastro);
-        JOptionPane.showMessageDialog(null, "Cadastrado com sucesso");
+        JOptionPane.showMessageDialog(null, "Usuário cadastrado com sucesso");
+        jTextFieldNome.setText("");
+        jTextFieldEmail.setText("");
+        jTextFieldCPF.setText("");
+        jTextFieldSexo.setText("");
+        jTextFieldIdade.setText("");
+        jTextFieldSenha.setText("");
+
     } catch (Exception ex) {
+
         JOptionPane.showMessageDialog(null, "Erro ao cadastrar");
     }
-    
-    dispose();
     }
 
     private javax.swing.JButton jButtonCadastrar;
@@ -237,6 +246,6 @@ public class CyberLoginTelaCadastro extends javax.swing.JFrame implements Action
     private javax.swing.JTextField jTextFieldEmail;
     private javax.swing.JTextField jTextFieldIdade;
     private javax.swing.JTextField jTextFieldNome;
-    private javax.swing.JTextField jTextFieldSenha;
     private javax.swing.JTextField jTextFieldSexo;
+    private javax.swing.JPasswordField jTextFieldSenha;
 }

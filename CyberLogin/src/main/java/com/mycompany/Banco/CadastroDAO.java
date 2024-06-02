@@ -5,7 +5,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -45,7 +44,7 @@ public class CadastroDAO {
 
         public List<CadastroEvento> buscarEventos() {
             List<CadastroEvento> eventos = new ArrayList<>();
-            String sql = "SELECT nome, descricao, datainicio, datafim, horainicio, horafim FROM eventos WHERE datafim >= ? OR (datafim = ? AND horafim > ?)";
+            String sql = "SELECT nome, descricao, datainicio, datafim, horainicio, horafim FROM eventos WHERE datafim >= ? AND datainicio <= ? AND horainicio <= ?;";
 
             try (Connection conn = Conexao.obterConexao();
                  PreparedStatement ps = conn.prepareStatement(sql)) {

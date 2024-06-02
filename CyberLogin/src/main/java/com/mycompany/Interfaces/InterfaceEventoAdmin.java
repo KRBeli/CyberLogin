@@ -4,13 +4,16 @@ import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
+
 import com.mycompany.Banco.CadastroDAO;
 import com.mycompany.Banco.CadastroEvento;
+import com.mycompany.Bordas.RoundJPanel;
 
 public class InterfaceEventoAdmin extends javax.swing.JFrame implements ActionListener {
 
     private javax.swing.JButton jButtonCadastrarEvento;
-    private javax.swing.JButton jButtonCancelar2;
+    private javax.swing.JButton jButtonVisualizar;
     private javax.swing.JLabel jLabelCadastroDeEvento;
     private javax.swing.JLabel jLabelDataFim;
     private javax.swing.JLabel jLabelDataInicio;
@@ -21,7 +24,6 @@ public class InterfaceEventoAdmin extends javax.swing.JFrame implements ActionLi
     private javax.swing.JLabel jLabelNome;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     public static javax.swing.JTextField jTextFieldDataFim;
     public static javax.swing.JTextField jTextFieldDataInicio;
     public static javax.swing.JTextField jTextFieldDescricao;
@@ -37,7 +39,7 @@ public class InterfaceEventoAdmin extends javax.swing.JFrame implements ActionLi
         jPanel1 = new javax.swing.JPanel();
         jLabelLogo = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
+        RoundJPanel jPanel3 = new RoundJPanel();
         jLabelDataFim = new javax.swing.JLabel();
         jLabelDataInicio = new javax.swing.JLabel();
         jLabelHoraInicio = new javax.swing.JLabel();
@@ -45,7 +47,7 @@ public class InterfaceEventoAdmin extends javax.swing.JFrame implements ActionLi
         jLabelHoraFim = new javax.swing.JLabel();
         jLabelNome = new javax.swing.JLabel();
         jButtonCadastrarEvento = new javax.swing.JButton();
-        jButtonCancelar2 = new javax.swing.JButton();
+        jButtonVisualizar = new javax.swing.JButton();
         jTextFieldNome = new javax.swing.JTextField();
         jTextFieldDescricao = new javax.swing.JTextField();
         jTextFieldDataInicio = new javax.swing.JTextField();
@@ -95,12 +97,14 @@ public class InterfaceEventoAdmin extends javax.swing.JFrame implements ActionLi
         jButtonCadastrarEvento.setText("Cadastrar");
         jButtonCadastrarEvento.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButtonCadastrarEvento.addActionListener(this);
-        jButtonCancelar2.setText("Cancelar");
-        jButtonCancelar2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jButtonCancelar2.addActionListener(new ActionListener() {
+        jButtonVisualizar.setText("Visualizar");
+        jButtonVisualizar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButtonVisualizar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                dispose();
+                InterfaceEventoUser interfaceEventoUser = new InterfaceEventoUser();
+                interfaceEventoUser.setVisible(true);
+                
             }
         });
 
@@ -135,7 +139,7 @@ public class InterfaceEventoAdmin extends javax.swing.JFrame implements ActionLi
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jButtonCadastrarEvento, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(114, 114, 114)
-                        .addComponent(jButtonCancelar2, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButtonVisualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(259, 259, 259))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -176,7 +180,7 @@ public class InterfaceEventoAdmin extends javax.swing.JFrame implements ActionLi
                 .addGap(42, 42, 42)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonCadastrarEvento, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonCancelar2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButtonVisualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(96, Short.MAX_VALUE))
         );
 
@@ -245,6 +249,8 @@ public class InterfaceEventoAdmin extends javax.swing.JFrame implements ActionLi
 
         pack();
         setExtendedState(MAXIMIZED_BOTH);
+        setLocationRelativeTo(null);
+        setTitle("Cyber Eventos");
     }
 
     public static void main(String args[]) {
@@ -273,6 +279,17 @@ public class InterfaceEventoAdmin extends javax.swing.JFrame implements ActionLi
         cadastroEvento.setHoraInicio(jTextFieldHoraInicio.getText());
         cadastroEvento.setHoraFim(jTextFieldHoraFim.getText());
         CadastroDAO cadastroDAO2 = new CadastroDAO();
-        cadastroDAO2.inserirEvento(cadastroEvento);
+        try {
+            cadastroDAO2.inserirEvento(cadastroEvento);
+            JOptionPane.showMessageDialog(null, "Evento cadastrado com sucesso!");
+            jTextFieldNome.setText("");
+            jTextFieldDescricao.setText("");
+            jTextFieldDataInicio.setText("");
+            jTextFieldDataFim.setText("");
+            jTextFieldHoraInicio.setText("");
+            jTextFieldHoraFim.setText("");
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "Erro ao cadastrar");
+        }
     }
 }

@@ -11,6 +11,7 @@ import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 import com.mycompany.Banco.CadastroDAO;
 import com.mycompany.Banco.CadastroEvento;
+import com.mycompany.Bordas.RoundJPanel;
 
 public class InterfaceEventoUser extends javax.swing.JFrame {
 
@@ -23,12 +24,47 @@ public class InterfaceEventoUser extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabelLogo = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
+        RoundJPanel  jPanel3 = new RoundJPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jLabelCadastroDeEvento = new javax.swing.JLabel();
+        jTable1 = new javax.swing.JTable();
+        jTable1.setAutoCreateRowSorter(true);
+        jTable1.getTableHeader().setReorderingAllowed(false);
+        jButtonRefresh = new javax.swing.JButton();
+        jButtonFechar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jButtonFechar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dispose();
+            }
+        });
+        jPanel2.add(jButtonFechar);
+        jButtonFechar.setBounds(1100, 70, 100, 100);
+        jButtonFechar.setBackground(new java.awt.Color(250,250,250));
+        jButtonFechar.setForeground(new java.awt.Color(0, 0, 0));
+        jButtonFechar.setText("Fechar");
+        jButtonFechar.setFont(new java.awt.Font("Calibri", 1, 14));
+        jButtonFechar.setFocusPainted(false);
+        jButtonFechar.setSize(100, 30);
+        jButtonFechar.setVisible(true);
+
+        jButtonRefresh.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buscarEventos();
+            }
+        });
+        jPanel2.add(jButtonRefresh);
+        jButtonRefresh.setBounds(1100, 30, 100, 100);
+        jButtonRefresh.setBackground(new java.awt.Color(250,250,250));
+        jButtonRefresh.setForeground(new java.awt.Color(0, 0, 0));
+        jButtonRefresh.setText("Atualizar");
+        jButtonRefresh.setFont(new java.awt.Font("Calibri", 1, 14));
+        jButtonRefresh.setFocusPainted(false);
+        jButtonRefresh.setSize(100, 30);
+        jButtonRefresh.setVisible(true);
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
         jPanel1.setPreferredSize(new java.awt.Dimension(1366, 768));
@@ -37,7 +73,7 @@ public class InterfaceEventoUser extends javax.swing.JFrame {
         Image resizedImage = img.getScaledInstance(32, 32, java.awt.Image.SCALE_SMOOTH);
         this.setIconImage(resizedImage);
 
-        jLabelLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("CyberLogin logo.jpg")));
+        jLabelLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("CyberLogin logo.png")));
 
         jPanel2.setBackground(new java.awt.Color(153, 153, 153));
 
@@ -149,6 +185,9 @@ public class InterfaceEventoUser extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
+        setExtendedState(MAXIMIZED_BOTH);
+        setTitle("CyberLogin - Visualização de Eventos");
     }
 
     public void buscarEventos() {
@@ -191,7 +230,8 @@ public class InterfaceEventoUser extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelLogo;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
+    private javax.swing.JButton jButtonRefresh;
+    private javax.swing.JButton jButtonFechar;
 }
